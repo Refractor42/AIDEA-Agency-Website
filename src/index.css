@@ -1,0 +1,386 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.tech-background {
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+  background-size: 200% 200%;
+  animation: techPulse 8s ease-in-out infinite;
+  opacity: 1;
+}
+
+@keyframes techPulse {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Modal Animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+    opacity: 0.3;
+  }
+  to {
+    transform: rotate(360deg);
+    opacity: 0.8;
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+/* Utility Classes */
+.parallax-bg {
+  background: black;
+  z-index: -1;
+}
+
+.nav-blur {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-blur.scrolled {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.logo-glow {
+  filter: drop-shadow(0 0 15px rgba(88, 101, 242, 0.5));
+}
+
+/* Text Hover Animations */
+h1, h2, h3, h4, p, span, a {
+  transition: all 0.3s ease;
+}
+
+h1:hover, h2:hover, h3:hover {
+  text-shadow: 0 0 15px rgba(88, 101, 242, 0.5);
+  letter-spacing: 0.5px;
+}
+
+p:hover, span:hover {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(88, 101, 242, 0.3);
+}
+
+/* Navigation Links */
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #5865F2, #7289DA);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Enhanced Button Animations */
+.button-glow {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, transparent, rgba(88, 101, 242, 0.1), transparent);
+  background-size: 200% 100%;
+}
+
+.button-glow:hover {
+  animation: shimmer 2s infinite;
+  box-shadow: 0 0 25px rgba(88, 101, 242, 0.6);
+  transform: translateY(-3px);
+  letter-spacing: 0.5px;
+}
+
+/* Service Card Animations */
+.bg-black\/30 {
+  transition: all 0.4s ease;
+}
+.bg-black\/30:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(147, 51, 234, 0.4);
+}
+
+.bg-black\/30:hover svg {
+  animation: pulse 2s infinite;
+  filter: drop-shadow(0 0 10px rgba(147, 51, 234, 0.5));
+}
+
+.bg-black\/30:hover h3 {
+  color: #9333EA;
+}
+
+
+/* Case Study Card Animations */
+.case-study-card {
+  transition: all 0.4s ease;
+  background: linear-gradient(45deg, transparent, rgba(147, 51, 234, 0.05), transparent);
+  background-size: 200% 100%;
+}
+
+.case-study-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(147, 51, 234, 0.3);
+  border-color: rgba(147, 51, 234, 0.4);
+  animation: shimmer 2s infinite;
+}
+
+.case-study-card:hover svg {
+  transform: rotate(10deg) scale(1.1);
+  transition: all 0.4s ease;
+}
+
+/* Testimonial Card Animations */
+.testimonial-card {
+  transition: all 0.4s ease;
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 20px 50px rgba(147, 51, 234, 0.3);
+  transform: translateY(-5px);
+  border-color: rgba(147, 51, 234, 0.4);
+}
+
+.testimonial-card:hover .font-bold {
+  color: #9333EA;
+}
+
+/* Form Animations */
+input, textarea {
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(88, 101, 242, 0.2);
+}
+
+form button[type="submit"] {
+  position: relative;
+  overflow: hidden;
+}
+
+form button[type="submit"]::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(88, 101, 242, 0.2) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+form button[type="submit"]:hover::after {
+  opacity: 1;
+}
+
+/* Modal Animations */
+.fixed.inset-0 {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Testimonial Carousel Animation */
+@keyframes testimonialFade {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+blockquote, .testimonial-card p {
+  animation: testimonialFade 0.5s ease-out;
+}
+
+/* Social Icons Animation */
+footer a {
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  transform: translateY(-3px) rotate(5deg);
+}
+
+footer a:hover svg {
+  color: #5865F2;
+  filter: drop-shadow(0 0 10px rgba(88, 101, 242, 0.5));
+}
+
+/* Scroll Animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* Data Grid */
+.data-grid {
+  z-index: -1;
+  opacity: 0.25;
+  background-size: 25px 25px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.data-grid::before,
+.data-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: 25px 25px;
+}
+
+.data-grid::before {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  animation: waveX 5s linear infinite;
+  opacity: 0.8;
+}
+
+.data-grid::after {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  animation: waveY 5s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes waveX {
+  0% {
+    transform: translateX(0);
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(50px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes waveY {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0.4;
+  }
+}
+
+/* Grid Overlay Pulse */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(88, 101, 242, 0.1) 0%, transparent 70%);
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
