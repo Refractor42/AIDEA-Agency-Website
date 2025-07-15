@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Github, Twitter, Linkedin, Bot } from 'lucide-react';
 import { MouseGlow } from './components/MouseGlow';
 import { ContactForm } from './components/ContactForm';
@@ -120,6 +120,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
       {/* Footer */}

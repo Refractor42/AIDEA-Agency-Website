@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+
 export default defineConfig({
   base: '/AIDEA-Agency-Website/',  // <-- replace 'aidea' with your repo name
   plugins: [react()],
@@ -18,3 +19,4 @@ export default defineConfig({
     minify: 'esbuild'
   }
 });
+
