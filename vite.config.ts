@@ -1,9 +1,11 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 
 export default defineConfig({
-  base: '/AIDEA-Agency-Website/',  // <-- replace 'aidea' with your repo name
+  base: '/AIDEA-Agency-Website/', 
   plugins: [react()],
   build: {
     rollupOptions: {
@@ -17,6 +19,13 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 1000,
     minify: 'esbuild'
-  }
+    
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.ts',
+  },
+  
 });
 
