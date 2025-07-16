@@ -11,7 +11,7 @@ if (!rootElement) throw new Error('Root element not found');
 createRoot(rootElement).render(
   <StrictMode>
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/AIDEA-Agency-Website/">
         <App />
       </BrowserRouter>
     </HelmetProvider>
